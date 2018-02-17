@@ -40,7 +40,9 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="8dp"
+        android:background="@color/secondaryDark"
         android:text="Submit"
+        android:textColor="@color/secondary"
         android:textAlignment="center" />
 
     <TextView
@@ -52,7 +54,8 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="8dp"
         android:text="@string/already_sign_up_login_here"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="@color/secondary" />
 
-  </LinearLayout>
+    </LinearLayout>
 </ScrollView>
