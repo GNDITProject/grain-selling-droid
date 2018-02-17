@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">grain-selling-droid</string>
+    <string name="app_name">GrainSellingApp</string>
+    <string name="userName">Username</string>
+    <string name="password">Password</string>
+    <string name="name">name</string>
+    <string name="already_sign_up_login_here">Already Member! Login Here</string>
 </resources>
