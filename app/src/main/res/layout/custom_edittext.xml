@@ -20,6 +20,6 @@
       android:layout_width="20dp"
       android:layout_height="20dp"
       android:layout_gravity="end|center_vertical"
-      android:background="@drawable/close_cross_circular_interface_button" />
+      android:background="@drawable/cancel" />
 
 </FrameLayout>

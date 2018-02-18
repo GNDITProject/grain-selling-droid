@@ -1,5 +1,6 @@
 package com.prayasj.gndit;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,12 +18,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static java.lang.Boolean.TRUE;
+
 public class SignupActivity extends AppCompatActivity {
+
+    ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-
 
         View submitButton = findViewById(R.id.submitButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -43,6 +48,12 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void signup() {
+        progressDialog = new ProgressDialog(SignupActivity.this);
+        progressDialog.setTitle("SignUp Progress");
+        progressDialog.setMessage("Loading...");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setCancelable(false);
+        progressDialog.show();
         String username = this.<EditText>findViewById(R.id.username).getText().toString();
         String password = this.<EditText>findViewById(R.id.password).getText().toString();
         UserInfo userInfo = new UserInfo(username, password);
@@ -50,11 +61,19 @@ public class SignupActivity extends AppCompatActivity {
         signUpService.signup(userInfo).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                Toast.makeText(SignupActivity.this, "Signup successful", Toast.LENGTH_SHORT).show();
+                if (response.isSuccessful() == TRUE) {
+                    progressDialog.dismiss();
+                    Toast.makeText(SignupActivity.this, "Signup successful",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    progressDialog.dismiss();
+                    Toast.makeText(SignupActivity.this, "Signup failure", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
+                progressDialog.dismiss();
                 Toast.makeText(SignupActivity.this, "Signup failure", Toast.LENGTH_SHORT).show();
             }
         });
