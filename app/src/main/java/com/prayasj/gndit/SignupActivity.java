@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.prayasj.gndit.custom.views.EditText;
 import com.prayasj.gndit.model.UserInfo;
 import com.prayasj.gndit.network.ServiceBuilder;
 import com.prayasj.gndit.network.service.SignUpService;
@@ -36,7 +36,7 @@ public class SignupActivity extends AppCompatActivity {
         loginHere.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent loginIntent = new Intent(SignupActivity.this,LoginActivity.class);
+                Intent loginIntent = new Intent(SignupActivity.this, LoginActivity.class);
                 SignupActivity.this.startActivity(loginIntent);
             }
         });
