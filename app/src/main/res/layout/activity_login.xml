@@ -9,6 +9,7 @@
 
   <com.prayasj.gndit.custom.views.EditText
     android:id="@+id/loginUsername"
+    android:focusableInTouchMode="true"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
@@ -35,7 +36,7 @@
     android:layout_gravity="bottom">
 
   <android.support.v7.widget.AppCompatButton
-    android:id="@+id/submitButton"
+    android:id="@+id/loginButton"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_alignParentRight="true"

@@ -22,7 +22,7 @@ import static java.lang.Boolean.TRUE;
 
 public class SignupActivity extends AppCompatActivity {
 
-    ProgressDialog progressDialog;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
