@@ -3,5 +3,6 @@
     <string name="userName">Username</string>
     <string name="password">Password</string>
     <string name="name">name</string>
-    <string name="already_sign_up_login_here">Already Member! Login Here</string>
+    <string name="already_sign_up_login_here">Already Member! \n Login Here</string>
+  <string name="don_t_have_account_register">Don\'t have Account? \n Register Here</string>
 </resources>
