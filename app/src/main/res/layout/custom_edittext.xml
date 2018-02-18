@@ -11,12 +11,11 @@
       android:hint="@string/userName" />
 
 
-  <ImageView
+  <Button
       android:id="@+id/close_button"
       android:layout_width="20dp"
       android:layout_height="20dp"
       android:layout_gravity="end|center_vertical"
-      android:visibility="gone"
-      android:src="@drawable/close_cross_circular_interface_button" />
+      android:background="@drawable/close_cross_circular_interface_button"/>
 
 </FrameLayout>
