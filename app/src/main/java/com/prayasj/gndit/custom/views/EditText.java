@@ -17,6 +17,7 @@ public class EditText extends LinearLayout {
     private View rootView;
     private int inputType;
     private String hint;
+    private View crossView;
 
     public EditText(Context context) {
         super(context);
@@ -36,10 +37,12 @@ public class EditText extends LinearLayout {
 
     private void initViews(Context context) {
         rootView = LayoutInflater.from(context).inflate(R.layout.custom_edittext, this, false);
-        rootView.findViewById(R.id.close_button).setOnClickListener(clearText());
+        crossView = rootView.findViewById(R.id.close_button);
+        crossView.setOnClickListener(clearText());
         android.widget.EditText editText = rootView.findViewById(R.id.edit_text);
         editText.setInputType(inputType);
         editText.setHint(hint);
+        editText.setOnFocusChangeListener(getFocusChangeListener());
         addView(rootView);
     }
 
@@ -56,6 +59,19 @@ public class EditText extends LinearLayout {
             public void onClick(View view) {
                 android.widget.EditText editText = rootView.findViewById(R.id.edit_text);
                 editText.setText("");
+            }
+        };
+    }
+
+    public OnFocusChangeListener getFocusChangeListener() {
+        return new OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    crossView.setVisibility(VISIBLE);
+                } else {
+                    crossView.setVisibility(GONE);
+                }
             }
         };
     }
