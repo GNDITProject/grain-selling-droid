@@ -4,11 +4,15 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
-  <EditText
-      android:id="@+id/edit_text"
+  <android.support.design.widget.TextInputLayout
+      android:id="@+id/edit_text_wrapper"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:hint="@string/userName" />
+      android:layout_height="wrap_content">
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+  </android.support.design.widget.TextInputLayout>
 
 
   <Button
@@ -16,6 +20,6 @@
       android:layout_width="20dp"
       android:layout_height="20dp"
       android:layout_gravity="end|center_vertical"
-      android:background="@drawable/close_cross_circular_interface_button"/>
+      android:background="@drawable/close_cross_circular_interface_button" />
 
 </FrameLayout>

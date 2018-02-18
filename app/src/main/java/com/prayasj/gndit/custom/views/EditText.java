@@ -4,6 +4,7 @@ package com.prayasj.gndit.custom.views;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -41,7 +42,7 @@ public class EditText extends LinearLayout {
         crossView.setOnClickListener(clearText());
         android.widget.EditText editText = rootView.findViewById(R.id.edit_text);
         editText.setInputType(inputType);
-        editText.setHint(hint);
+        ((TextInputLayout) rootView.findViewById(R.id.edit_text_wrapper)).setHint(hint);
         editText.setOnFocusChangeListener(getFocusChangeListener());
         addView(rootView);
     }
