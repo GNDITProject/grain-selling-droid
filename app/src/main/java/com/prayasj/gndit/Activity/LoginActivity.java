@@ -1,4 +1,4 @@
-package com.prayasj.gndit;
+package com.prayasj.gndit.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.prayasj.gndit.R;
 import com.prayasj.gndit.custom.views.EditText;
 import com.prayasj.gndit.model.UserInfo;
 import com.prayasj.gndit.network.ServiceBuilder;
@@ -62,18 +63,18 @@ public class LoginActivity extends AppCompatActivity {
         if (response.isSuccessful()) {
           progressDialog.dismiss();
           String jwt_token = response.headers().get("jwt_token");
-          Toast.makeText(LoginActivity.this, "Signup successful: " + jwt_token,
+          Toast.makeText(LoginActivity.this, "Login successful: " + jwt_token,
             Toast.LENGTH_SHORT).show();
         } else {
           progressDialog.dismiss();
-          Toast.makeText(LoginActivity.this, "Signup failure", Toast.LENGTH_SHORT).show();
+          Toast.makeText(LoginActivity.this, "Login failure", Toast.LENGTH_SHORT).show();
         }
       }
 
       @Override
       public void onFailure(Call<Void> call, Throwable throwable) {
         progressDialog.dismiss();
-        Toast.makeText(LoginActivity.this, "Signup failure", Toast.LENGTH_SHORT).show();
+        Toast.makeText(LoginActivity.this, "Login failure", Toast.LENGTH_SHORT).show();
       }
     });
   }

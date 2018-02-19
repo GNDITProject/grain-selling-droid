@@ -1,4 +1,4 @@
-package com.prayasj.gndit;
+package com.prayasj.gndit.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.prayasj.gndit.R;
 import com.prayasj.gndit.custom.views.EditText;
 import com.prayasj.gndit.model.UserInfo;
 import com.prayasj.gndit.network.ServiceBuilder;
@@ -66,6 +67,8 @@ public class SignupActivity extends AppCompatActivity {
                     progressDialog.dismiss();
                     Toast.makeText(SignupActivity.this, "Signup successful",
                             Toast.LENGTH_SHORT).show();
+                  Intent loginIntent = new Intent(SignupActivity.this, LoginActivity.class);
+                  SignupActivity.this.startActivity(loginIntent);
                 } else {
                     progressDialog.dismiss();
                     Toast.makeText(SignupActivity.this, "Signup failure", Toast.LENGTH_SHORT).show();
