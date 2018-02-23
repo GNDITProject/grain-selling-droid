@@ -17,8 +17,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static java.lang.Boolean.TRUE;
-
 public class LoginActivity extends AppCompatActivity {
 
   private ProgressDialog progressDialog;
@@ -42,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
       public void onClick(View v) {
         Intent signUpIntent = new Intent(LoginActivity.this, SignupActivity.class);
         LoginActivity.this.startActivity(signUpIntent);
+        finish();
       }
     });
   }
