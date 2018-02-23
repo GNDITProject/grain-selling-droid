@@ -18,6 +18,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.prayasj.gndit.Activity.SignupActivity.NEW_USER_NAME;
+
 public class LoginActivity extends AppCompatActivity {
 
   private ProgressDialog progressDialog;
@@ -28,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     setContentView(R.layout.activity_login);
 
     EditText loginUsername = findViewById(R.id.loginUsername);
-    loginUsername.setText(getIntent().getStringExtra("userName"));
+    loginUsername.setText(getIntent().getStringExtra(NEW_USER_NAME));
 
 
     View loginButton = findViewById(R.id.loginButton);
