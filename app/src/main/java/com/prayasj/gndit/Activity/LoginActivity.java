@@ -27,6 +27,10 @@ public class LoginActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_login);
 
+    EditText loginUsername = findViewById(R.id.loginUsername);
+    loginUsername.setText(getIntent().getStringExtra("userName"));
+
+
     View loginButton = findViewById(R.id.loginButton);
     loginButton.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -45,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
       }
     });
   }
+
 
   private void login() {
     progressDialog = new ProgressDialog(LoginActivity.this);

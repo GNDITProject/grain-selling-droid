@@ -76,4 +76,8 @@ public class EditText extends LinearLayout {
             }
         };
     }
+    public void setText(String text){
+      android.widget.EditText editText = rootView.findViewById(R.id.edit_text);
+      editText.setText(text);
+    }
 }

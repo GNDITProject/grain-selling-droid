@@ -56,9 +56,9 @@ public class SignupActivity extends AppCompatActivity {
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.setCancelable(false);
         progressDialog.show();
-        String username = this.<EditText>findViewById(R.id.username).getText().toString();
-        String password = this.<EditText>findViewById(R.id.password).getText().toString();
-        UserInfo userInfo = new UserInfo(username, password);
+        final String username = this.<EditText>findViewById(R.id.username).getText().toString();
+        final String password = this.<EditText>findViewById(R.id.password).getText().toString();
+        final UserInfo userInfo = new UserInfo(username, password);
         SignUpService signUpService = ServiceBuilder.build(SignUpService.class);
         signUpService.signup(userInfo).enqueue(new Callback<Void>() {
             @Override
@@ -67,7 +67,8 @@ public class SignupActivity extends AppCompatActivity {
                     progressDialog.dismiss();
                     Toast.makeText(SignupActivity.this, "Signup successful",
                             Toast.LENGTH_SHORT).show();
-                  Intent loginIntent = new Intent(SignupActivity.this, LoginActivity.class);
+                  Intent loginIntent = new Intent(SignupActivity.this, LoginActivity.class).
+                    putExtra("userName",username);
                   SignupActivity.this.startActivity(loginIntent);
                 } else {
                     progressDialog.dismiss();
