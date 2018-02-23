@@ -40,7 +40,6 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_alignParentRight="true"
-    android:layout_marginBottom="16dp"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     android:layout_marginTop="8dp"
@@ -50,17 +49,27 @@
     android:textColor="@color/secondary"/>
 
     <TextView
-      android:id="@+id/signup_here"
+      android:id="@+id/register1"
       android:background="@color/background"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:paddingBottom="16dp"
-      android:paddingTop="16dp"
-      android:layout_alignParentBottom="true"
-      android:text="@string/don_t_have_account_register"
-      android:textStyle="bold"
+      android:paddingTop="8dp"
+      android:layout_above="@+id/register2"
+      android:text="Don\'t have Account?"
       android:textAlignment="center"
       android:textColor="@color/secondaryDark" />
+
+    <TextView
+      android:id="@+id/register2"
+      android:background="@color/background"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingBottom="8dp"
+      android:layout_alignParentBottom="true"
+      android:text="Register Here"
+      android:textStyle="bold"
+      android:textAlignment="center"
+      android:textColor="@color/colorPrimary" />
   </RelativeLayout>
 
 </LinearLayout>

@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
       }
     });
 
-    View signUpHere = findViewById(R.id.signup_here);
+    View signUpHere = findViewById(R.id.register2);
     signUpHere.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
