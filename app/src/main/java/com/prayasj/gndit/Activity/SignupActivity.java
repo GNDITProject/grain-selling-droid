@@ -69,7 +69,7 @@ public class SignupActivity extends AppCompatActivity implements SignUpView {
     Toast.makeText(SignupActivity.this, "Signup successful",
       Toast.LENGTH_SHORT).show();
     Intent loginIntent = new Intent(SignupActivity.this, LoginActivity.class).
-      putExtra(NEW_USER_NAME, this.<EditText>findViewById(R.id.password).getText().toString());
+      putExtra(NEW_USER_NAME, this.<EditText>findViewById(R.id.username).getText().toString());
     SignupActivity.this.startActivity(loginIntent);
   }
 
