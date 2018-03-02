@@ -15,6 +15,10 @@ public class JwtTokenHolder {
     return jwtToken;
   }
 
+  public boolean hasToken(){
+    return jwtToken != null;
+  }
+
   public static JwtTokenHolder getInstance() {
     if (holder == null) {
       holder = new JwtTokenHolder();

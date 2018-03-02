@@ -9,13 +9,19 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.prayasj.gndit.R;
+import com.prayasj.gndit.network.ServiceBuilder;
+import com.prayasj.gndit.network.service.CropRequestService;
+import com.prayasj.gndit.presenter.DashboardPresenter;
 
 
 public class DashboardActivity extends AppCompatActivity {
+
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_dashboard);
+    DashboardPresenter dashboardPresenter = new DashboardPresenter(ServiceBuilder.build(CropRequestService.class));
+    dashboardPresenter.getCropRequests();
   }
 
   @Override
