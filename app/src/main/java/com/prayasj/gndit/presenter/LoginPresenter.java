@@ -1,6 +1,7 @@
 package com.prayasj.gndit.presenter;
 
 import com.prayasj.gndit.model.UserInfo;
+import com.prayasj.gndit.network.JwtTokenHolder;
 import com.prayasj.gndit.network.service.LoginService;
 
 import retrofit2.Call;
@@ -21,7 +22,9 @@ public class LoginPresenter {
     loginService.login(new UserInfo(username,password)).enqueue(new Callback<Void>() {
       @Override
       public void onResponse(Call<Void> call, Response<Void> response) {
-        loginView.onSignUpSuccessful(response.headers().get("jwt_token"));
+        String jwt_token = response.headers().get("jwt_token");
+        JwtTokenHolder.getInstance().setToken(jwt_token);
+        loginView.onSignUpSuccessful(jwt_token);
       }
 
       @Override
