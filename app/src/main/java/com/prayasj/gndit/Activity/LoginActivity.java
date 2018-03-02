@@ -73,8 +73,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
   @Override
   public void onSignUpSuccessful(String token) {
     progressDialog.dismiss();
+    Intent dashboardIntent = new Intent(LoginActivity.this, DashboardActivity.class);
+    LoginActivity.this.startActivity(dashboardIntent);
     Toast.makeText(LoginActivity.this, "Login successful: " + token,
       Toast.LENGTH_SHORT).show();
+    finish();
   }
 
   @Override
