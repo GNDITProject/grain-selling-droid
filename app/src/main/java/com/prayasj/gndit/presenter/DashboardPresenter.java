@@ -16,17 +16,17 @@ public class DashboardPresenter {
   private CropRequestService cropRequestService;
   private DashboardView dashboardView;
 
-  public DashboardPresenter(CropRequestService cropRequestService,DashboardView dashboardView){
+  public DashboardPresenter(CropRequestService cropRequestService, DashboardView dashboardView) {
 
     this.cropRequestService = cropRequestService;
     this.dashboardView = dashboardView;
   }
 
-  public void getCropRequests(){
+  public void showCropRequests() {
     cropRequestService.getCropRequest().enqueue(new Callback<List<CropRequest>>() {
       @Override
       public void onResponse(Call<List<CropRequest>> call, Response<List<CropRequest>> response) {
-        if(response.isSuccessful()){
+        if (response.isSuccessful()) {
           List<CropRequest> body = response.body();
           dashboardView.showCropRequests(body);
         }
@@ -35,10 +35,31 @@ public class DashboardPresenter {
 
       @Override
       public void onFailure(Call<List<CropRequest>> call, Throwable throwable) {
-        Log.d("prayas","failure:");
+        Log.d("prayas", "failure:");
         dashboardView.showError();
       }
     });
+  }
+
+  public void refresh() {
+    cropRequestService.getCropRequest().enqueue(new Callback<List<CropRequest>>() {
+      @Override
+      public void onResponse(Call<List<CropRequest>> call, Response<List<CropRequest>> response) {
+        if (response.isSuccessful()) {
+          List<CropRequest> body = response.body();
+          dashboardView.showCropRequests(body);
+          dashboardView.onRefreshDone();
+        }
+        dashboardView.showError();
+      }
+
+      @Override
+      public void onFailure(Call<List<CropRequest>> call, Throwable throwable) {
+        Log.d("prayas", "failure:");
+        dashboardView.showError();
+      }
+    });
+
   }
 
 }

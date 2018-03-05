@@ -9,4 +9,5 @@ import retrofit2.Response;
 public interface DashboardView {
   void showCropRequests(List<CropRequest> body);
   void showError();
+  void onRefreshDone();
 }
