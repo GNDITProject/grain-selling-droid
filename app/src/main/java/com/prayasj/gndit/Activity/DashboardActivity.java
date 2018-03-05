@@ -1,5 +1,6 @@
 package com.prayasj.gndit.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.prayasj.gndit.R;
@@ -26,12 +28,13 @@ import java.util.List;
 public class DashboardActivity extends AppCompatActivity implements DashboardView {
 
   private SwipeRefreshLayout refreshView;
+  private ProgressDialog progressDialog;
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_dashboard);
-    final DashboardPresenter dashboardPresenter = new DashboardPresenter(ServiceBuilder.build(CropRequestService.class),this);
+    final DashboardPresenter dashboardPresenter = new DashboardPresenter(ServiceBuilder.build(CropRequestService.class), this);
     dashboardPresenter.showCropRequests();
 
     refreshView = findViewById(R.id.swipe_refresh);
@@ -55,13 +58,23 @@ public class DashboardActivity extends AppCompatActivity implements DashboardVie
   }
 
   @Override
+  public void showProgressDialog() {
+    progressDialog = new ProgressDialog(DashboardActivity.this);
+    progressDialog.setTitle("Loading Requests");
+    progressDialog.setMessage("Please Wait...");
+    progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+    progressDialog.setCancelable(false);
+    progressDialog.show();
+  }
+
+  @Override
   public boolean onOptionsItemSelected(MenuItem item) {
-    switch (item.getItemId()){
+    switch (item.getItemId()) {
       case R.id.signOut:
         Intent signOutIntent = new Intent(DashboardActivity.this, LoginActivity.class);
         DashboardActivity.this.startActivity(signOutIntent);
         finish();
-        Toast.makeText(this,"sign out",Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "sign out", Toast.LENGTH_LONG).show();
         return true;
     }
     return super.onOptionsItemSelected(item);
@@ -69,6 +82,7 @@ public class DashboardActivity extends AppCompatActivity implements DashboardVie
 
   @Override
   public void showCropRequests(List<CropRequest> cropRequests) {
+    progressDialog.dismiss();
     CropRequestAdapter cropRequestAdapter =
       new CropRequestAdapter(DashboardActivity.this, cropRequests);
     ListView cropRequestView = findViewById(R.id.crop_request_view);

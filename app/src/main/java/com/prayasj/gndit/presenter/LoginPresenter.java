@@ -24,12 +24,12 @@ public class LoginPresenter {
       public void onResponse(Call<Void> call, Response<Void> response) {
         String jwt_token = response.headers().get("jwt_token");
         JwtTokenHolder.getInstance().setToken(jwt_token);
-        loginView.onSignUpSuccessful(jwt_token);
+        loginView.onLoginSuccessful();
       }
 
       @Override
       public void onFailure(Call<Void> call, Throwable throwable) {
-        loginView.onSignUpFailure();
+        loginView.onLoginFailure();
       }
     });
   }

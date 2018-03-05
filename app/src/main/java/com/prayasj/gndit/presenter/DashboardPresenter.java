@@ -23,6 +23,7 @@ public class DashboardPresenter {
   }
 
   public void showCropRequests() {
+    dashboardView.showProgressDialog();
     cropRequestService.getCropRequest().enqueue(new Callback<List<CropRequest>>() {
       @Override
       public void onResponse(Call<List<CropRequest>> call, Response<List<CropRequest>> response) {
