@@ -6,4 +6,5 @@
     <color name="secondaryDark">#673AB7</color>
     <color name="secondary">#EDE7F6</color>
   <color name="background">#D1C4E9</color>
+  <color name="purple_background">#D1C4E9</color>
 </resources>
