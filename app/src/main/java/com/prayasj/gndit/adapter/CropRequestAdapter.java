@@ -39,8 +39,14 @@ public class CropRequestAdapter extends ArrayAdapter<CropRequest>{
     TextView priceTextview = listItemView.findViewById(R.id.price);
     priceTextview.setText(currentRequest.getPrice().toString());
 
+    TextView priceUnitTextview = listItemView.findViewById(R.id.price_unit);
+    priceUnitTextview.setText(getContext().getText(R.string.Rs));
+
     TextView timeAndDateTextview = listItemView.findViewById(R.id.created_at);
     timeAndDateTextview.setText(currentRequest.getCreatedAt());
+
+    TextView quantityUnitTextview = listItemView.findViewById(R.id.quantity_unit);
+    quantityUnitTextview.setText(getContext().getText(R.string.Mt));
 
     return listItemView;
   }

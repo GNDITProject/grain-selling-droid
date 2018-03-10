@@ -7,4 +7,6 @@
   <string name="login">Login Here</string>
   <string name="dont_have_account">Don\'t have Account?</string>
   <string name="register">Register Here</string>
+  <string name="Rs">\u20B9</string>
+  <string name="Mt">Mt</string>
 </resources>
