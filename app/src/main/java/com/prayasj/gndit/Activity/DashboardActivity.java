@@ -4,14 +4,13 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.prayasj.gndit.R;
@@ -42,6 +41,16 @@ public class DashboardActivity extends AppCompatActivity implements DashboardVie
       @Override
       public void onRefresh() {
         dashboardPresenter.refresh();
+      }
+    });
+
+    FloatingActionButton addRequestFloatingButton = findViewById(R.id.add_crop_request);
+    addRequestFloatingButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Intent addCropRequestIntent = new Intent
+          (DashboardActivity.this,MakeCropRequestActivity.class);
+        DashboardActivity.this.startActivity(addCropRequestIntent);
       }
     });
   }

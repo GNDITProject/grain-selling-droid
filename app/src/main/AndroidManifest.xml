@@ -11,7 +11,7 @@
     android:theme="@style/AppTheme">
     <activity
       android:name=".Activity.SignupActivity"
-      android:label="SignUp">
+      android:label="@string/app_name">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
@@ -19,6 +19,7 @@
     </activity>
     <activity android:name=".Activity.LoginActivity" android:label="Login"></activity>
     <activity android:name=".Activity.DashboardActivity" android:label="Your Crop Requests"></activity>
+    <activity android:name=".Activity.MakeCropRequestActivity" android:label="Create Crop Request"></activity>
   </application>
 
 </manifest>
