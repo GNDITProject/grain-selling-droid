@@ -10,4 +10,17 @@
   <string name="Rs">\u20B9</string>
   <string name="Mt">Mt</string>
   <string name="add_request">Add Request</string>
+  <string name="title_activity_create_profile">Create Your Profile</string>
+  <string name="full_name">Full Name</string>
+  <string name="address">Address</string>
+  <string name="contact_number">Contact Number</string>
+  <string name="dob">Date of Birth</string>
+  <string name="wait_a_moment">Wait a moment…</string>
+  <string name="saving_profile_information">Saving Profile Information</string>
+  <string name="technical_difficulty">We\'re facing technical difficulty. Please try again later.</string>
+  <string-array name="gender">
+    <item>Select Gender</item>
+    <item>Male</item>
+    <item>Female</item>
+  </string-array>
 </resources>

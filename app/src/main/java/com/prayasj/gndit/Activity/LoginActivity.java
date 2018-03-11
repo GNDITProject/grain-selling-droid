@@ -18,7 +18,7 @@ import com.prayasj.gndit.presenter.LoginView;
 
 import static com.prayasj.gndit.Activity.SignupActivity.NEW_USER_NAME;
 
-public class LoginActivity extends AppCompatActivity implements LoginView{
+public class LoginActivity extends AppCompatActivity implements LoginView {
 
   private ProgressDialog progressDialog;
   private LoginPresenter loginPresenter;
@@ -50,14 +50,14 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
       }
     });
 
-     loginPresenter = new LoginPresenter((ServiceBuilder.build(LoginService.class)),this);
+    loginPresenter = new LoginPresenter((ServiceBuilder.build(LoginService.class)), this);
   }
 
 
   private void login() {
     final String username = this.<EditText>findViewById(R.id.loginUsername).getText().toString();
     final String password = this.<EditText>findViewById(R.id.loginPassword).getText().toString();
-    loginPresenter.login(username,password);
+    loginPresenter.login(username, password);
   }
 
   @Override
@@ -71,9 +71,17 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
   }
 
   @Override
-  public void onLoginSuccessful() {
+  public void navigateToDashboardActivity() {
     progressDialog.dismiss();
     Intent dashboardIntent = new Intent(LoginActivity.this, DashboardActivity.class);
+    LoginActivity.this.startActivity(dashboardIntent);
+    finish();
+  }
+
+  @Override
+  public void navigateToCreateProfileActivity() {
+    progressDialog.dismiss();
+    Intent dashboardIntent = new Intent(LoginActivity.this, CreateProfileActivity.class);
     LoginActivity.this.startActivity(dashboardIntent);
     finish();
   }

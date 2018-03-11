@@ -1,7 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="com.prayasj.gndit">
 
   <uses-permission android:name="android.permission.INTERNET" />
+
   <application
     android:allowBackup="true"
     android:icon="@mipmap/icon"
@@ -17,9 +19,18 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <activity android:name=".Activity.LoginActivity" android:label="Login"></activity>
-    <activity android:name=".Activity.DashboardActivity" android:label="Your Crop Requests"></activity>
-    <activity android:name=".Activity.MakeCropRequestActivity" android:label="Create Crop Request"></activity>
+    <activity
+      android:name=".Activity.LoginActivity"
+      android:label="Login" />
+    <activity
+      android:name=".Activity.DashboardActivity"
+      android:label="Your Crop Requests" />
+    <activity
+      android:name=".Activity.MakeCropRequestActivity"
+      android:label="Create Crop Request" />
+    <activity
+      android:name=".Activity.CreateProfileActivity"
+      android:label="@string/title_activity_create_profile" />
   </application>
 
 </manifest>

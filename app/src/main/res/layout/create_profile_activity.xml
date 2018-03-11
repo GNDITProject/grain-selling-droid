@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  tools:context="com.prayasj.gndit.Activity.CreateProfileActivity">
+
+  <com.prayasj.gndit.custom.views.EditText
+    android:id="@+id/profile_name"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginTop="8dp"
+    android:focusableInTouchMode="true"
+    app:editInputType="text"
+    app:hint="@string/full_name" />
+
+  <com.prayasj.gndit.custom.views.EditText
+    android:id="@+id/address"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginTop="8dp"
+    android:focusableInTouchMode="true"
+    app:editInputType="text"
+    app:hint="@string/address" />
+
+  <com.prayasj.gndit.custom.views.EditText
+    android:id="@+id/contact"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginTop="8dp"
+    android:focusableInTouchMode="true"
+    app:editInputType="text"
+    app:hint="@string/contact_number" />
+
+  <Spinner
+    android:id="@+id/gender"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:layout_marginLeft="13dp"
+    android:layout_marginRight="13dp"
+    android:layout_marginTop="8dp"
+    android:drawSelectorOnTop="true"
+    android:entries="@array/gender" />
+
+
+  <EditText
+    android:id="@+id/dob_text"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginTop="8dp"
+    android:focusable="false"
+    android:hint="@string/dob"
+    android:inputType="none"
+    android:longClickable="false"
+    android:onClick="showDatePicker" />
+
+</LinearLayout>
