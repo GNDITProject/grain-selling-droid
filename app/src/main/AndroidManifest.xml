@@ -11,14 +11,14 @@
     android:theme="@style/AppTheme">
     <activity
       android:name=".Activity.SignupActivity"
-      android:label="@string/app_name">
+      android:label="SignUp">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <activity android:name=".Activity.LoginActivity"></activity>
-    <activity android:name=".Activity.DashboardActivity"></activity>
+    <activity android:name=".Activity.LoginActivity" android:label="Login"></activity>
+    <activity android:name=".Activity.DashboardActivity" android:label="Your Crop Requests"></activity>
   </application>
 
 </manifest>
