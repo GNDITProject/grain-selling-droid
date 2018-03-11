@@ -98,6 +98,14 @@ public class MakeCropRequestActivity extends AppCompatActivity implements Makecr
       Toast.LENGTH_LONG);
   }
 
+  @Override
+  public void onFailure() {
+    progressDialog.dismiss();
+    Toast.makeText(MakeCropRequestActivity.this,
+      "Request Not Done",
+      Toast.LENGTH_LONG);
+  }
+
   @NonNull
   private String getStringFromView(int viewId) {
     return this.<EditText>findViewById(viewId).getText().toString();

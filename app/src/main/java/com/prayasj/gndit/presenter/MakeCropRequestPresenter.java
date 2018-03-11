@@ -50,11 +50,12 @@ public class MakeCropRequestPresenter {
         if(response.isSuccessful()){
           makecropRequestView.onSuccessful();
         }
+        makecropRequestView.onFailure();
       }
 
       @Override
       public void onFailure(Call<Void> call, Throwable throwable) {
-
+        makecropRequestView.onFailure();
       }
     });
   }

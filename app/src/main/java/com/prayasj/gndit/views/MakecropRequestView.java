@@ -11,4 +11,6 @@ public interface MakecropRequestView {
   void showCropsName(List<String> responseBody);
   CropRequestDto getCropRequestInfo();
   void onSuccessful();
+
+  void onFailure();
 }
