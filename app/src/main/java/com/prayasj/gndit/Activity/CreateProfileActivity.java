@@ -127,13 +127,23 @@ public class CreateProfileActivity extends AppCompatActivity implements OnDateSe
   @Override
   public void onProfileSaveFailure(ErrorResponse response) {
     progressDialog.dismiss();
-    Snackbar.make(findViewById(android.R.id.content), response.getMessage(), Snackbar.LENGTH_SHORT).show();
+    showSnackBar(response.getMessage());
 
   }
 
   @Override
   public void onTechnicalError() {
     progressDialog.dismiss();
-    Snackbar.make(findViewById(android.R.id.content), R.string.technical_difficulty, Snackbar.LENGTH_SHORT).show();
+    showSnackBar(getString(R.string.technical_difficulty));
+  }
+
+  private void showSnackBar(String message) {
+    final Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_SHORT);
+    snackbar.setAction("OK", new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        snackbar.dismiss();
+      }
+    }).show();
   }
 }
