@@ -4,6 +4,7 @@ import com.prayasj.gndit.model.UserInfo;
 import com.prayasj.gndit.network.JwtTokenHolder;
 import com.prayasj.gndit.network.response.LoginResponse;
 import com.prayasj.gndit.network.service.LoginService;
+import com.prayasj.gndit.views.LoginView;
 
 import retrofit2.Call;
 import retrofit2.Callback;

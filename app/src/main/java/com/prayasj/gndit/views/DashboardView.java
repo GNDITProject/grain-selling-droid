@@ -1,4 +1,4 @@
-package com.prayasj.gndit.presenter;
+package com.prayasj.gndit.views;
 
 import com.prayasj.gndit.model.CropRequest;
 

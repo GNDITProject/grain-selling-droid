@@ -19,7 +19,7 @@ import com.prayasj.gndit.model.CropRequest;
 import com.prayasj.gndit.network.ServiceBuilder;
 import com.prayasj.gndit.network.service.CropRequestService;
 import com.prayasj.gndit.presenter.DashboardPresenter;
-import com.prayasj.gndit.presenter.DashboardView;
+import com.prayasj.gndit.views.DashboardView;
 
 import java.util.List;
 

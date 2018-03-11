@@ -14,7 +14,7 @@ import com.prayasj.gndit.custom.views.EditText;
 import com.prayasj.gndit.network.ServiceBuilder;
 import com.prayasj.gndit.network.service.SignUpService;
 import com.prayasj.gndit.presenter.SignUpPresenter;
-import com.prayasj.gndit.presenter.SignUpView;
+import com.prayasj.gndit.views.SignUpView;
 
 public class SignupActivity extends AppCompatActivity implements SignUpView {
 

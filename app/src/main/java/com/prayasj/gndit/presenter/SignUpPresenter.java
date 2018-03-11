@@ -2,6 +2,7 @@ package com.prayasj.gndit.presenter;
 
 import com.prayasj.gndit.model.UserInfo;
 import com.prayasj.gndit.network.service.SignUpService;
+import com.prayasj.gndit.views.SignUpView;
 
 import retrofit2.Call;
 import retrofit2.Callback;

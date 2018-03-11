@@ -13,7 +13,7 @@ import com.prayasj.gndit.custom.views.EditText;
 import com.prayasj.gndit.network.ServiceBuilder;
 import com.prayasj.gndit.network.service.LoginService;
 import com.prayasj.gndit.presenter.LoginPresenter;
-import com.prayasj.gndit.presenter.LoginView;
+import com.prayasj.gndit.views.LoginView;
 
 
 import static com.prayasj.gndit.Activity.SignupActivity.NEW_USER_NAME;

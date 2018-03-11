@@ -1,4 +1,4 @@
-package com.prayasj.gndit.presenter;
+package com.prayasj.gndit.views;
 
 public interface LoginView {
   void showProgressLoader();
