@@ -1,6 +1,7 @@
 package com.prayasj.gndit.Activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,14 +20,15 @@ import com.prayasj.gndit.network.ServiceBuilder;
 import com.prayasj.gndit.network.service.CropRequestService;
 import com.prayasj.gndit.network.service.CropsNameService;
 import com.prayasj.gndit.presenter.MakeCropRequestPresenter;
-import com.prayasj.gndit.views.MakecropRequestView;
+import com.prayasj.gndit.views.MakeCropRequestView;
 
 import java.util.List;
 
 
-public class MakeCropRequestActivity extends AppCompatActivity implements MakecropRequestView {
+public class MakeCropRequestActivity extends AppCompatActivity implements MakeCropRequestView {
 
 
+  public static final String CROP_REQUEST_CREATED = "CROP_REQUEST_CREATED";
   private Spinner cropRequestSpinner;
   private ProgressDialog progressDialog;
   private MakeCropRequestPresenter makeCropRequestPresenter;
@@ -45,7 +47,7 @@ public class MakeCropRequestActivity extends AppCompatActivity implements Makecr
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
     MenuInflater menuInflater = getMenuInflater();
-    menuInflater.inflate(R.menu.menu_make_crop_request,menu);
+    menuInflater.inflate(R.menu.menu_make_crop_request, menu);
     return true;
   }
 
@@ -92,6 +94,7 @@ public class MakeCropRequestActivity extends AppCompatActivity implements Makecr
   @Override
   public void onSuccessful() {
     progressDialog.dismiss();
+    setResult(RESULT_OK);
     finish();
     Toast.makeText(MakeCropRequestActivity.this,
       "Request has been Saved",

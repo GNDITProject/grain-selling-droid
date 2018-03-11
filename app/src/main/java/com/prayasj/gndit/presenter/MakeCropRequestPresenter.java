@@ -3,7 +3,7 @@ package com.prayasj.gndit.presenter;
 
 import com.prayasj.gndit.network.service.CropRequestService;
 import com.prayasj.gndit.network.service.CropsNameService;
-import com.prayasj.gndit.views.MakecropRequestView;
+import com.prayasj.gndit.views.MakeCropRequestView;
 
 import java.util.List;
 
@@ -14,23 +14,23 @@ import retrofit2.Response;
 public class MakeCropRequestPresenter {
   private CropRequestService cropRequestService;
   private CropsNameService cropsNameService;
-  private MakecropRequestView makecropRequestView;
+  private MakeCropRequestView makeCropRequestView;
 
 
-  public MakeCropRequestPresenter(CropRequestService cropRequestService, CropsNameService cropsNameService, MakecropRequestView makecropRequestView){
+  public MakeCropRequestPresenter(CropRequestService cropRequestService, CropsNameService cropsNameService, MakeCropRequestView makeCropRequestView){
     this.cropRequestService = cropRequestService;
     this.cropsNameService = cropsNameService;
-    this.makecropRequestView = makecropRequestView;
+    this.makeCropRequestView = makeCropRequestView;
   }
 
 
   public void renderCropsList(){
-    makecropRequestView.showProgressLoader();
+    makeCropRequestView.showProgressLoader();
     cropsNameService.getCropName().enqueue(new Callback<List<String>>() {
       @Override
       public void onResponse(Call<List<String>> call, Response<List<String>> response) {
         if (response.isSuccessful()){
-          makecropRequestView.showCropsName(response.body());
+          makeCropRequestView.showCropsName(response.body());
         }
       }
 
@@ -43,19 +43,19 @@ public class MakeCropRequestPresenter {
   }
 
   public void saveCropRequest(){
-    makecropRequestView.showProgressLoader();
-    cropRequestService.saveCropRequest(makecropRequestView.getCropRequestInfo()).enqueue(new Callback<Void>() {
+    makeCropRequestView.showProgressLoader();
+    cropRequestService.saveCropRequest(makeCropRequestView.getCropRequestInfo()).enqueue(new Callback<Void>() {
       @Override
       public void onResponse(Call<Void> call, Response<Void> response) {
         if(response.isSuccessful()){
-          makecropRequestView.onSuccessful();
+          makeCropRequestView.onSuccessful();
         }
-        makecropRequestView.onFailure();
+        makeCropRequestView.onFailure();
       }
 
       @Override
       public void onFailure(Call<Void> call, Throwable throwable) {
-        makecropRequestView.onFailure();
+        makeCropRequestView.onFailure();
       }
     });
   }

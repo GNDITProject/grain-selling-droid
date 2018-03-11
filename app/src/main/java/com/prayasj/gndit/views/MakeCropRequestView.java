@@ -6,7 +6,7 @@ import com.prayasj.gndit.model.CropRequest;
 
 import java.util.List;
 
-public interface MakecropRequestView {
+public interface MakeCropRequestView {
   void showProgressLoader();
   void showCropsName(List<String> responseBody);
   CropRequestDto getCropRequestInfo();
