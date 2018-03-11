@@ -4,6 +4,8 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -30,6 +32,13 @@ public class MakeCropRequestActivity extends AppCompatActivity implements Makecr
     MakeCropRequestPresenter makeCropRequestPresenter =
       new MakeCropRequestPresenter(ServiceBuilder.build(CropsNameService.class),this);
     makeCropRequestPresenter.getCropName();
+  }
+
+  @Override
+  public boolean onCreateOptionsMenu(Menu menu) {
+    MenuInflater menuInflater = getMenuInflater();
+    menuInflater.inflate(R.menu.menu_make_crop_request,menu);
+    return true;
   }
 
   @Override
