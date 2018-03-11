@@ -27,13 +27,28 @@ import java.util.List;
 public class DashboardActivity extends AppCompatActivity implements DashboardView {
 
   private SwipeRefreshLayout refreshView;
+  static final int PICK_REQUEST = 1;
+  private DashboardPresenter dashboardPresenter;
+
+  @Override
+  protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (requestCode == PICK_REQUEST){
+      if (resultCode == RESULT_OK){
+        dashboardPresenter.refresh();
+      }
+    }
+    super.onActivityResult(requestCode, resultCode, data);
+  }
+
   private ProgressDialog progressDialog;
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
+    final int PICK_REQUEST = 1;
+
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_dashboard);
-    final DashboardPresenter dashboardPresenter = new DashboardPresenter(ServiceBuilder.build(CropRequestService.class), this);
+    dashboardPresenter = new DashboardPresenter(ServiceBuilder.build(CropRequestService.class), this);
     dashboardPresenter.showCropRequests();
 
     refreshView = findViewById(R.id.swipe_refresh);
@@ -50,7 +65,7 @@ public class DashboardActivity extends AppCompatActivity implements DashboardVie
       public void onClick(View v) {
         Intent addCropRequestIntent = new Intent
           (DashboardActivity.this,MakeCropRequestActivity.class);
-        DashboardActivity.this.startActivity(addCropRequestIntent);
+        DashboardActivity.this.startActivityForResult(addCropRequestIntent,PICK_REQUEST);
       }
     });
   }
