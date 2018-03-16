@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
   android:orientation="vertical">
@@ -8,82 +7,109 @@
   <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:layout_marginBottom="8dp"
     android:layout_marginTop="16dp"
-    android:layout_marginBottom="8dp">
+    android:orientation="horizontal">
 
     <TextView
+      android:layout_gravity="center_vertical"
       android:layout_width="100dp"
-      android:textStyle="bold"
       android:layout_height="wrap_content"
-      android:textColor="@color/secondaryDark"
-      android:layout_marginStart="16dp"
       android:layout_marginEnd="8dp"
+      android:layout_marginStart="16dp"
+      android:text="Crop Name"
+      android:textColor="@color/secondaryDark"
       android:textSize="15sp"
-      android:text="Crop Name"/>
+      android:textStyle="bold" />
 
     <Spinner
       android:id="@+id/crop_name"
       android:layout_width="200dp"
       android:layout_height="20dp"
-      android:layout_marginStart="8dp"
       android:layout_marginEnd="16dp"
+      android:layout_marginStart="8dp"
       android:drawSelectorOnTop="true"
-      android:inputType="numberDecimal"/>
+      android:inputType="numberDecimal" />
 
   </LinearLayout>
 
   <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_marginBottom="8dp"
-    android:layout_marginTop="8dp">
-
-    <TextView
-      android:layout_width="100dp"
-      android:textColor="@color/secondaryDark"
-      android:textStyle="bold"
-      android:textSize="15sp"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="16dp"
-      android:layout_marginEnd="8dp"
-      android:text="Qunatity"/>
-
-    <EditText
-      android:id="@+id/quantity_make_request"
-      android:layout_width="200dp"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="8dp"
-      android:layout_marginEnd="16dp"
-      android:inputType="numberDecimal"/>
-
-  </LinearLayout>
-
-  <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:layout_marginBottom="16dp"
     android:layout_marginTop="8dp"
-    android:layout_marginBottom="16dp">
+    android:orientation="horizontal">
 
     <TextView
+      android:gravity="center_vertical"
       android:layout_width="100dp"
       android:layout_height="wrap_content"
-      android:textStyle="bold"
-      android:textSize="15sp"
-      android:textColor="@color/secondaryDark"
-      android:layout_marginStart="16dp"
       android:layout_marginEnd="8dp"
-      android:text="Price" />
+      android:layout_marginStart="16dp"
+      android:text="Price"
+      android:textColor="@color/secondaryDark"
+      android:textSize="15sp"
+      android:textStyle="bold" />
 
-    <EditText
-      android:id="@+id/price_make_request"
-      android:layout_width="200dp"
+    <FrameLayout
+      android:layout_width="220dp"
+      android:layout_height="wrap_content">
+
+      <EditText
+        android:id="@+id/quantity_make_request"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:inputType="numberDecimal" />
+
+      <TextView
+        android:layout_gravity="center_vertical|end"
+        android:gravity="bottom"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:text="@string/Mt" />
+    </FrameLayout>
+
+  </LinearLayout>
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:layout_marginTop="8dp"
+    android:orientation="horizontal">
+
+    <TextView
+      android:gravity="center_vertical"
+      android:layout_width="100dp"
       android:layout_height="wrap_content"
-      android:layout_marginStart="8dp"
-      android:layout_marginEnd="16dp"
-      android:inputType="numberDecimal"/>
+      android:layout_marginEnd="8dp"
+      android:layout_marginStart="16dp"
+      android:text="Price"
+      android:textColor="@color/secondaryDark"
+      android:textSize="15sp"
+      android:textStyle="bold" />
+
+    <FrameLayout
+      android:layout_width="220dp"
+      android:layout_height="wrap_content">
+
+      <EditText
+        android:id="@+id/price_make_request"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:inputType="numberDecimal" />
+
+      <TextView
+        android:layout_gravity="end|center_vertical"
+        android:gravity="center"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:text="@string/Rs" />
+    </FrameLayout>
 
   </LinearLayout>
 </LinearLayout>
