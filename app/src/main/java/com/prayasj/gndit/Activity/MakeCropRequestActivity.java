@@ -1,7 +1,6 @@
 package com.prayasj.gndit.Activity;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -62,10 +61,10 @@ public class MakeCropRequestActivity extends AppCompatActivity implements MakeCr
   }
 
   @Override
-  public void showProgressLoader() {
+  public void showProgressLoader(String title, String message) {
     progressDialog = new ProgressDialog(MakeCropRequestActivity.this);
-    progressDialog.setTitle("Loading Crops");
-    progressDialog.setMessage("Loading...");
+    progressDialog.setTitle(title);
+    progressDialog.setMessage(message);
     progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
     progressDialog.setCancelable(false);
     progressDialog.show();

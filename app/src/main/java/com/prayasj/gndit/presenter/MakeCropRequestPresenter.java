@@ -25,7 +25,7 @@ public class MakeCropRequestPresenter {
 
 
   public void renderCropsList(){
-    makeCropRequestView.showProgressLoader();
+    makeCropRequestView.showProgressLoader("Loading Crops", "Loading...");
     cropsNameService.getCropName().enqueue(new Callback<List<String>>() {
       @Override
       public void onResponse(Call<List<String>> call, Response<List<String>> response) {
@@ -43,7 +43,7 @@ public class MakeCropRequestPresenter {
   }
 
   public void saveCropRequest(){
-    makeCropRequestView.showProgressLoader();
+    makeCropRequestView.showProgressLoader("Creating Crop Request", "Sending Request to the Server");
     cropRequestService.saveCropRequest(makeCropRequestView.getCropRequestInfo()).enqueue(new Callback<Void>() {
       @Override
       public void onResponse(Call<Void> call, Response<Void> response) {
