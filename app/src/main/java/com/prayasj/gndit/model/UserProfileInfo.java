@@ -19,4 +19,24 @@ public class UserProfileInfo {
     this.contact = contact;
     this.dob = dob;
   }
+
+  public String getName() {
+    return name;
+  }
+
+  public String getGender() {
+    return gender;
+  }
+
+  public String getAddress() {
+    return address;
+  }
+
+  public String getContact() {
+    return contact;
+  }
+
+  public long getDob() {
+    return dob;
+  }
 }

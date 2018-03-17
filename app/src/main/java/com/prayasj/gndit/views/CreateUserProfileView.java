@@ -9,4 +9,7 @@ public interface CreateUserProfileView {
   void onProfileSaveSuccessful();
   void onProfileSaveFailure(ErrorResponse response);
   void onTechnicalError();
+
+  void showErrorMessage(String message);
 }
+

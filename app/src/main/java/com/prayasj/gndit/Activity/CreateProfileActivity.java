@@ -23,6 +23,7 @@ import com.prayasj.gndit.network.ServiceBuilder;
 import com.prayasj.gndit.network.response.ErrorResponse;
 import com.prayasj.gndit.network.service.UserProfileService;
 import com.prayasj.gndit.presenter.CreateProfilePresenter;
+import com.prayasj.gndit.validator.UserProfileInfoValidator;
 import com.prayasj.gndit.views.CreateUserProfileView;
 
 import java.text.SimpleDateFormat;
@@ -44,7 +45,7 @@ public class CreateProfileActivity extends AppCompatActivity implements OnDateSe
     super.onCreate(savedInstanceState);
     selectedDob = new Date().getTime();
     setContentView(R.layout.create_profile_activity);
-    createProfilePresenter = new CreateProfilePresenter(ServiceBuilder.build(UserProfileService.class), this);
+    createProfilePresenter = new CreateProfilePresenter(ServiceBuilder.build(UserProfileService.class), this,new UserProfileInfoValidator());
   }
 
   @Override
@@ -135,6 +136,12 @@ public class CreateProfileActivity extends AppCompatActivity implements OnDateSe
   public void onTechnicalError() {
     progressDialog.dismiss();
     showSnackBar(getString(R.string.technical_difficulty));
+  }
+
+  @Override
+  public void showErrorMessage(String message) {
+    progressDialog.dismiss();
+    showSnackBar(message);
   }
 
   private void showSnackBar(String message) {
