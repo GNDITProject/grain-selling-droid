@@ -4,15 +4,19 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
 import com.prayasj.gndit.R;
 import com.prayasj.gndit.custom.views.EditText;
+import com.prayasj.gndit.model.UserProfileInfo;
 import com.prayasj.gndit.network.ServiceBuilder;
 import com.prayasj.gndit.network.service.LoginService;
 import com.prayasj.gndit.presenter.LoginPresenter;
+import com.prayasj.gndit.validator.UserInfoValidator;
+import com.prayasj.gndit.validator.UserProfileInfoValidator;
 import com.prayasj.gndit.views.LoginView;
 
 
@@ -22,6 +26,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
   private ProgressDialog progressDialog;
   private LoginPresenter loginPresenter;
+  private UserInfoValidator userInfoValidator;
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,7 +55,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
       }
     });
 
-    loginPresenter = new LoginPresenter((ServiceBuilder.build(LoginService.class)), this);
+    loginPresenter = new LoginPresenter((ServiceBuilder.build(LoginService.class)), this, userInfoValidator);
   }
 
 
@@ -91,5 +96,20 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     progressDialog.dismiss();
     Toast.makeText(LoginActivity.this, "Login failure", Toast.LENGTH_SHORT).show();
 
+  }
+
+  @Override
+  public void showErrorMessage(String message) {
+    progressDialog.dismiss();
+    showSnackBar(message);
+  }
+  private void showSnackBar(String message) {
+    final Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_SHORT);
+    snackbar.setAction("OK", new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        snackbar.dismiss();
+      }
+    }).show();
   }
 }

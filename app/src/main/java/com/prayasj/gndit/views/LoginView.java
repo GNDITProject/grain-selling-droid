@@ -8,4 +8,6 @@ public interface LoginView {
   void navigateToCreateProfileActivity();
 
   void onLoginFailure();
+
+  void showErrorMessage(String message);
 }
