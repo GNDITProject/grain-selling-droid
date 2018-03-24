@@ -7,4 +7,6 @@ public interface SignUpView {
   void onSignUpSuccessful();
 
   void onSignUpFailure();
+
+  void showErrorMessage(String userInfoValid);
 }

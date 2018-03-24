@@ -15,7 +15,7 @@ import retrofit2.Response;
 public class LoginPresenter {
   private final LoginService loginService;
   private final LoginView loginView;
-  private final UserInfoValidator userInfoValidator;
+  private UserInfoValidator userInfoValidator;
 
   public LoginPresenter(LoginService loginService, LoginView loginView, UserInfoValidator userInfoValidator) {
     this.loginService = loginService;
@@ -24,12 +24,13 @@ public class LoginPresenter {
   }
 
   public void login(String username, String password) {
-    UserInfo currentUser = new UserInfo(username, password);
     loginView.showProgressLoader();
+    userInfoValidator =  new UserInfoValidator();
+    UserInfo currentUser = new UserInfo(username, password);
     if (new UserInfoValidator().isUserInfoValid(currentUser) == null) {
       makeRequest(currentUser);
     } else {
-      loginView.showErrorMessage(new UserInfoValidator().isUserInfoValid(currentUser));
+      loginView.showErrorMessage(userInfoValidator.isUserInfoValid(currentUser));
     }
   }
 

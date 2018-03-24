@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import com.prayasj.gndit.custom.views.EditText;
 import com.prayasj.gndit.network.ServiceBuilder;
 import com.prayasj.gndit.network.service.SignUpService;
 import com.prayasj.gndit.presenter.SignUpPresenter;
+import com.prayasj.gndit.validator.UserInfoValidator;
 import com.prayasj.gndit.views.SignUpView;
 
 public class SignupActivity extends AppCompatActivity implements SignUpView {
@@ -21,6 +23,7 @@ public class SignupActivity extends AppCompatActivity implements SignUpView {
   public static final String NEW_USER_NAME = "userName";
   private ProgressDialog progressDialog;
   private SignUpPresenter signUpPresenter;
+  private UserInfoValidator userInfoValidator;
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,7 +47,7 @@ public class SignupActivity extends AppCompatActivity implements SignUpView {
         finish();
       }
     });
-    signUpPresenter = new SignUpPresenter(ServiceBuilder.build(SignUpService.class), this);
+    signUpPresenter = new SignUpPresenter(ServiceBuilder.build(SignUpService.class), this,userInfoValidator);
   }
 
   private void signup() {
@@ -77,5 +80,20 @@ public class SignupActivity extends AppCompatActivity implements SignUpView {
   public void onSignUpFailure() {
     progressDialog.dismiss();
     Toast.makeText(SignupActivity.this, "Signup failure", Toast.LENGTH_SHORT).show();
+  }
+
+  @Override
+  public void showErrorMessage(String message) {
+    progressDialog.dismiss();
+    showSnackBar(message);
+  }
+  private void showSnackBar(String message) {
+    final Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_SHORT);
+    snackbar.setAction("OK", new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        snackbar.dismiss();
+      }
+    }).show();
   }
 }

@@ -55,7 +55,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
       }
     });
 
-    loginPresenter = new LoginPresenter((ServiceBuilder.build(LoginService.class)), this, userInfoValidator);
+    loginPresenter = new LoginPresenter
+      ((ServiceBuilder.build(LoginService.class)), this, userInfoValidator);
   }
 
 
