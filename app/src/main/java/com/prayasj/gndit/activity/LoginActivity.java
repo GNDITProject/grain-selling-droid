@@ -1,4 +1,4 @@
-package com.prayasj.gndit.Activity;
+package com.prayasj.gndit.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -11,16 +11,14 @@ import android.widget.Toast;
 
 import com.prayasj.gndit.R;
 import com.prayasj.gndit.custom.views.EditText;
-import com.prayasj.gndit.model.UserProfileInfo;
 import com.prayasj.gndit.network.ServiceBuilder;
 import com.prayasj.gndit.network.service.LoginService;
 import com.prayasj.gndit.presenter.LoginPresenter;
 import com.prayasj.gndit.validator.UserInfoValidator;
-import com.prayasj.gndit.validator.UserProfileInfoValidator;
 import com.prayasj.gndit.views.LoginView;
 
 
-import static com.prayasj.gndit.Activity.SignupActivity.NEW_USER_NAME;
+import static com.prayasj.gndit.activity.SignupActivity.NEW_USER_NAME;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 

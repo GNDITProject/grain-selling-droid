@@ -12,7 +12,7 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
     <activity
-      android:name=".Activity.SignupActivity"
+      android:name=".activity.SignupActivity"
       android:label="@string/app_name">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
@@ -20,16 +20,16 @@
       </intent-filter>
     </activity>
     <activity
-      android:name=".Activity.LoginActivity"
+      android:name=".activity.LoginActivity"
       android:label="Login" />
     <activity
-      android:name=".Activity.DashboardActivity"
+      android:name=".activity.DashboardActivity"
       android:label="Your Crop Requests" />
     <activity
-      android:name=".Activity.MakeCropRequestActivity"
+      android:name=".activity.MakeCropRequestActivity"
       android:label="Create Crop Request" />
     <activity
-      android:name=".Activity.CreateProfileActivity"
+      android:name=".activity.CreateProfileActivity"
       android:label="@string/title_activity_create_profile" />
   </application>
 

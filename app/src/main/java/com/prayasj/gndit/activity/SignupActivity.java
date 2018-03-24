@@ -1,4 +1,4 @@
-package com.prayasj.gndit.Activity;
+package com.prayasj.gndit.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;

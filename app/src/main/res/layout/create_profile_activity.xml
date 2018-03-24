@@ -5,7 +5,7 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:orientation="vertical"
-  tools:context="com.prayasj.gndit.Activity.CreateProfileActivity">
+  tools:context="com.prayasj.gndit.activity.CreateProfileActivity">
 
   <com.prayasj.gndit.custom.views.EditText
     android:id="@+id/profile_name"

@@ -6,7 +6,7 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 
-import com.prayasj.gndit.Activity.CreateProfileActivity;
+import com.prayasj.gndit.activity.CreateProfileActivity;
 
 import java.util.Calendar;
 import java.util.Date;
