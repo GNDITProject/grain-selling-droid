@@ -1,5 +1,9 @@
 package com.prayasj.gndit.presenter;
 
+import android.content.Context;
+
+import com.prayasj.gndit.SaveSharedPreferences;
+import com.prayasj.gndit.activity.SignupActivity;
 import com.prayasj.gndit.model.UserInfo;
 import com.prayasj.gndit.network.service.SignUpService;
 import com.prayasj.gndit.validator.UserInfoValidator;

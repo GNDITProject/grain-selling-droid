@@ -10,25 +10,34 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.prayasj.gndit.AutoLoginManager;
 import com.prayasj.gndit.R;
+import com.prayasj.gndit.SaveSharedPreferences;
 import com.prayasj.gndit.custom.views.EditText;
 import com.prayasj.gndit.network.ServiceBuilder;
+import com.prayasj.gndit.network.service.LoginService;
 import com.prayasj.gndit.network.service.SignUpService;
 import com.prayasj.gndit.presenter.SignUpPresenter;
 import com.prayasj.gndit.validator.UserInfoValidator;
+import com.prayasj.gndit.views.LoginView;
 import com.prayasj.gndit.views.SignUpView;
 
-public class SignupActivity extends AppCompatActivity implements SignUpView {
+public class SignupActivity extends AppCompatActivity implements SignUpView,LoginView {
 
   public static final String NEW_USER_NAME = "userName";
   private ProgressDialog progressDialog;
   private SignUpPresenter signUpPresenter;
   private UserInfoValidator userInfoValidator;
+  private AutoLoginManager autoLoginManager;
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_signup);
+    autoLoginManager = new AutoLoginManager(ServiceBuilder.build(LoginService.class),this,this);
+    if (SaveSharedPreferences.getUserName(SignupActivity.this).length() != 0){
+      autoLoginManager.loginWithSavedCredentials();
+    }
 
     View submitButton = findViewById(R.id.submitButton);
     submitButton.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +73,28 @@ public class SignupActivity extends AppCompatActivity implements SignUpView {
     progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
     progressDialog.setCancelable(false);
     progressDialog.show();
+  }
+
+  @Override
+  public void navigateToDashboardActivity() {
+    progressDialog.dismiss();
+    Intent dashboardIntent = new Intent(SignupActivity.this, DashboardActivity.class);
+    SignupActivity.this.startActivity(dashboardIntent);
+    finish();
+  }
+
+  @Override
+  public void navigateToCreateProfileActivity() {
+    progressDialog.dismiss();
+    Intent dashboardIntent = new Intent(SignupActivity.this, CreateProfileActivity.class);
+    SignupActivity.this.startActivity(dashboardIntent);
+    finish();
+  }
+
+  @Override
+  public void onLoginFailure() {
+    progressDialog.dismiss();
+    showSnackBar("Error to process you request");
   }
 
   @Override

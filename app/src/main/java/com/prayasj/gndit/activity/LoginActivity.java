@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.prayasj.gndit.R;
+import com.prayasj.gndit.SaveSharedPreferences;
 import com.prayasj.gndit.custom.views.EditText;
 import com.prayasj.gndit.network.ServiceBuilder;
 import com.prayasj.gndit.network.service.LoginService;
@@ -53,12 +55,10 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
       }
     });
 
-    loginPresenter = new LoginPresenter
-      ((ServiceBuilder.build(LoginService.class)), this, userInfoValidator);
+    loginPresenter = new LoginPresenter(LoginActivity.this,(ServiceBuilder.build(LoginService.class)), this, userInfoValidator);
   }
 
-
-  private void login() {
+    private void login() {
     final String username = this.<EditText>findViewById(R.id.loginUsername).getText().toString();
     final String password = this.<EditText>findViewById(R.id.loginPassword).getText().toString();
     loginPresenter.login(username, password);
