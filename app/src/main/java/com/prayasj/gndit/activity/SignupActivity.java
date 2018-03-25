@@ -35,7 +35,7 @@ public class SignupActivity extends AppCompatActivity implements SignUpView,Logi
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_signup);
     autoLoginManager = new AutoLoginManager(ServiceBuilder.build(LoginService.class),this,this);
-    if (SaveSharedPreferences.getUserName(SignupActivity.this).length() != 0){
+    if (SaveSharedPreferences.getUserName(SignupActivity.this) != null){
       autoLoginManager.loginWithSavedCredentials();
     }
 
