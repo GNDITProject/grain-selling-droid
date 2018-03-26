@@ -1,9 +1,5 @@
 package com.prayasj.gndit.presenter;
 
-import android.content.Context;
-
-import com.prayasj.gndit.SaveSharedPreferences;
-import com.prayasj.gndit.activity.SignupActivity;
 import com.prayasj.gndit.model.UserInfo;
 import com.prayasj.gndit.network.service.SignUpService;
 import com.prayasj.gndit.validator.UserInfoValidator;
@@ -28,7 +24,6 @@ public class SignUpPresenter {
   public void signup(String username, String password) {
     signUpView.showProgressLoader();
     UserInfo currentUser = new UserInfo(username, password);
-    userInfoValidator =  new UserInfoValidator();
     if (userInfoValidator.isUserInfoValid(currentUser) == null){
       makeRequest(currentUser);
     }else {
