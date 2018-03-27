@@ -41,7 +41,6 @@ public class SplashScreenActivity extends Activity implements LoginView, SplashS
 
   @Override
   public void navigateToDashboardActivity() {
-    progressDialog.dismiss();
     Intent dashboardIntent = new Intent(SplashScreenActivity.this, DashboardActivity.class);
     SplashScreenActivity.this.startActivity(dashboardIntent);
     finish();
@@ -50,7 +49,6 @@ public class SplashScreenActivity extends Activity implements LoginView, SplashS
 
   @Override
   public void navigateToCreateProfileActivity() {
-    progressDialog.dismiss();
     Intent dashboardIntent = new Intent(SplashScreenActivity.this, CreateProfileActivity.class);
     SplashScreenActivity.this.startActivity(dashboardIntent);
     finish();
@@ -58,8 +56,7 @@ public class SplashScreenActivity extends Activity implements LoginView, SplashS
 
   @Override
   public void onLoginFailure() {
-    progressDialog.dismiss();
-    showSnackBar("we have some Technical Issue");
+    showSnackBar("Please check your internet connection");
   }
 
   @Override

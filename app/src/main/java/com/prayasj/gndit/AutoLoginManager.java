@@ -24,7 +24,6 @@ public class AutoLoginManager {
   }
 
   public void loginWithSavedCredentials() {
-    loginView.showProgressLoader();
     UserInfo user = new UserInfo
       (SaveSharedPreferences.getUserName(context), SaveSharedPreferences.getPrefUserPassword(context));
     loginService.login(user).enqueue(new Callback<LoginResponse>() {
