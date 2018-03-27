@@ -3,13 +3,11 @@ package com.prayasj.gndit.presenter;
 import android.content.Context;
 
 import com.prayasj.gndit.SaveSharedPreferences;
-import com.prayasj.gndit.activity.LoginActivity;
 import com.prayasj.gndit.model.UserInfo;
 import com.prayasj.gndit.network.JwtTokenHolder;
 import com.prayasj.gndit.network.response.LoginResponse;
 import com.prayasj.gndit.network.service.LoginService;
 import com.prayasj.gndit.validator.UserInfoValidator;
-import com.prayasj.gndit.validator.UserProfileInfoValidator;
 import com.prayasj.gndit.views.LoginView;
 
 import retrofit2.Call;
@@ -17,13 +15,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginPresenter {
+  private  SaveSharedPreferences saveSharedPreferences;
   private final LoginService loginService;
   private final LoginView loginView;
   private UserInfoValidator userInfoValidator;
-  private Context context;
 
-  public LoginPresenter(Context context, LoginService loginService, LoginView loginView, UserInfoValidator userInfoValidator) {
-    this.context = context;
+  public LoginPresenter(SaveSharedPreferences saveSharedPreferences, LoginService loginService, LoginView loginView, UserInfoValidator userInfoValidator) {
+    this.saveSharedPreferences = saveSharedPreferences;
     this.loginService = loginService;
     this.loginView = loginView;
     this.userInfoValidator = userInfoValidator;
@@ -31,9 +29,8 @@ public class LoginPresenter {
 
   public void login(String username, String password) {
     loginView.showProgressLoader();
-    userInfoValidator = new UserInfoValidator();
     UserInfo currentUser = new UserInfo(username, password);
-    if (new UserInfoValidator().isUserInfoValid(currentUser) == null) {
+    if (userInfoValidator.isUserInfoValid(currentUser) == null) {
       makeRequest(currentUser);
     } else {
       loginView.showErrorMessage(userInfoValidator.isUserInfoValid(currentUser));
@@ -66,7 +63,7 @@ public class LoginPresenter {
   }
 
   private void saveCredentialsForAutoLogin(UserInfo currentUser) {
-    SaveSharedPreferences.setPrefUserName(context, currentUser.getUsername());
-    SaveSharedPreferences.setPrefUserPassword(context, currentUser.getPassword());
+    saveSharedPreferences.setPrefUserName(currentUser.getUsername());
+    saveSharedPreferences.setPrefUserPassword(currentUser.getPassword());
   }
 }

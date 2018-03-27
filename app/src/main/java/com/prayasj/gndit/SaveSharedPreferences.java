@@ -6,14 +6,19 @@ import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
 
 public class SaveSharedPreferences {
-  static String PREF_USER_NAME = "username";
-  static String PREF_USER_PASSWORD = "password";
+  private String PREF_USER_NAME = "username";
+  private String PREF_USER_PASSWORD = "password";
+  private Context context;
 
-  static SharedPreferences getSharedPreferences(Context ctx) {
+  public SaveSharedPreferences (Context context){
+    this.context = context;
+  }
+
+  private SharedPreferences getSharedPreferences(Context ctx) {
     return PreferenceManager.getDefaultSharedPreferences(ctx);
   }
 
-  public static String getUserName(Context context){
+  public String getPrefUserName(){
     try {
       return SecurityManager.decrypt(getSharedPreferences(context).getString(PREF_USER_NAME, ""));
     } catch (Exception e) {
@@ -22,7 +27,7 @@ public class SaveSharedPreferences {
     return null;
   }
 
-  public static String getPrefUserPassword(Context context){
+  public String getPrefUserPassword(){
     try {
       return SecurityManager.decrypt(getSharedPreferences(context).getString(PREF_USER_PASSWORD, ""));
     } catch (Exception e) {
@@ -31,7 +36,7 @@ public class SaveSharedPreferences {
     return null;
   }
 
-  public static void setPrefUserName(Context context, String userName){
+  public void setPrefUserName(String userName){
     Editor editor = getSharedPreferences(context).edit();
     try {
       editor.putString(PREF_USER_NAME, SecurityManager.encrypt(userName));
@@ -41,7 +46,7 @@ public class SaveSharedPreferences {
     editor.apply();
   }
 
-  public static void setPrefUserPassword(Context context, String password){
+  public void setPrefUserPassword(String password){
     Editor editor = getSharedPreferences(context).edit();
     try {
       editor.putString(PREF_USER_PASSWORD, SecurityManager.encrypt(password));

@@ -8,7 +8,11 @@ import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 
+import com.prayasj.gndit.AutoLoginManager;
 import com.prayasj.gndit.R;
+import com.prayasj.gndit.SaveSharedPreferences;
+import com.prayasj.gndit.network.ServiceBuilder;
+import com.prayasj.gndit.network.service.LoginService;
 import com.prayasj.gndit.presenter.SplashScreenPresenter;
 import com.prayasj.gndit.views.LoginView;
 import com.prayasj.gndit.views.SplashScreenView;
@@ -17,14 +21,17 @@ public class SplashScreenActivity extends Activity implements LoginView, SplashS
 
   private ProgressDialog progressDialog;
   private Handler handler;
+  private AutoLoginManager autoLoginManager;
+  private SaveSharedPreferences saveSharedPreferences;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_splash_screen);
 
-    SplashScreenPresenter splashScreenPresenter =
-      new SplashScreenPresenter(this, SplashScreenActivity.this, this);
+    saveSharedPreferences =  new SaveSharedPreferences(this);
+    autoLoginManager = new AutoLoginManager((ServiceBuilder.build(LoginService.class)), this, saveSharedPreferences);
+    SplashScreenPresenter splashScreenPresenter = new SplashScreenPresenter(this, autoLoginManager, saveSharedPreferences);
     splashScreenPresenter.doLoginIfRequired();
 
   }

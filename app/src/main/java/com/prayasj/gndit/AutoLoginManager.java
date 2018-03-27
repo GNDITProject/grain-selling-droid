@@ -1,7 +1,5 @@
 package com.prayasj.gndit;
 
-import android.content.Context;
-
 import com.prayasj.gndit.model.UserInfo;
 import com.prayasj.gndit.network.JwtTokenHolder;
 import com.prayasj.gndit.network.response.LoginResponse;
@@ -15,17 +13,17 @@ import retrofit2.Response;
 public class AutoLoginManager {
   private final LoginService loginService;
   private final LoginView loginView;
-  private final Context context;
+  private SaveSharedPreferences saveSharedPreferences;
 
-  public AutoLoginManager(LoginService loginService, LoginView loginView, Context context) {
+  public AutoLoginManager(LoginService loginService, LoginView loginView, SaveSharedPreferences saveSharedPreferences) {
     this.loginService = loginService;
     this.loginView = loginView;
-    this.context = context;
+    this.saveSharedPreferences = saveSharedPreferences;
   }
 
   public void loginWithSavedCredentials() {
     UserInfo user = new UserInfo
-      (SaveSharedPreferences.getUserName(context), SaveSharedPreferences.getPrefUserPassword(context));
+      (saveSharedPreferences.getPrefUserName(), saveSharedPreferences.getPrefUserPassword());
     loginService.login(user).enqueue(new Callback<LoginResponse>() {
       @Override
       public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {

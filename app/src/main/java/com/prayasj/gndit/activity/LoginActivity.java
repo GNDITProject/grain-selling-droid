@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -27,6 +26,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
   private ProgressDialog progressDialog;
   private LoginPresenter loginPresenter;
   private UserInfoValidator userInfoValidator;
+  private SaveSharedPreferences saveSharedPreferences;
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,8 +54,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         finish();
       }
     });
-
-    loginPresenter = new LoginPresenter(LoginActivity.this,(ServiceBuilder.build(LoginService.class)), this, userInfoValidator);
+    userInfoValidator = new UserInfoValidator();
+    saveSharedPreferences = new SaveSharedPreferences(this);
+    loginPresenter = new LoginPresenter(saveSharedPreferences, (ServiceBuilder.build(LoginService.class)), this, userInfoValidator);
   }
 
     private void login() {
