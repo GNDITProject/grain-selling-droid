@@ -2,14 +2,18 @@ package com.prayasj.gndit.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.PopupMenu;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -35,7 +39,7 @@ public class DashboardActivity extends AppCompatActivity implements DashboardVie
   @Override
   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     if (requestCode == CREATE_CROP_REQUEST_CODE && resultCode == RESULT_OK) {
-        dashboardPresenter.refresh();
+      dashboardPresenter.refresh();
     }
     super.onActivityResult(requestCode, resultCode, data);
   }
@@ -93,13 +97,17 @@ public class DashboardActivity extends AppCompatActivity implements DashboardVie
   public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
       case R.id.signOut:
-        Intent signOutIntent = new Intent(DashboardActivity.this, LoginActivity.class);
-        DashboardActivity.this.startActivity(signOutIntent);
-        finish();
-        Toast.makeText(this, "sign out", Toast.LENGTH_LONG).show();
+        signOut();
         return true;
     }
     return super.onOptionsItemSelected(item);
+  }
+
+  private void signOut() {
+    Intent signOutIntent = new Intent(DashboardActivity.this, LoginActivity.class);
+    DashboardActivity.this.startActivity(signOutIntent);
+    finish();
+    Toast.makeText(this, "sign out", Toast.LENGTH_LONG).show();
   }
 
   @Override

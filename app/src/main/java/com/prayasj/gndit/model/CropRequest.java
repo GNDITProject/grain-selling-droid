@@ -5,10 +5,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class CropRequest {
-  private Crop crop;
+  private String cropName;
   private BigDecimal price;
   private BigDecimal quantity;
   private Long createdAt;
+
 
   public BigDecimal getPrice(){
     return price;
@@ -18,8 +19,8 @@ public class CropRequest {
     return quantity;
   }
 
-  public Crop getCrop(){
-    return crop;
+  public String getCropName(){
+    return cropName;
   }
 
   public String getCreatedAt() {
