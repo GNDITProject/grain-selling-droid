@@ -1,7 +1,5 @@
 package com.prayasj.gndit.presenter;
 
-import android.content.Context;
-
 import com.prayasj.gndit.SaveSharedPreferences;
 import com.prayasj.gndit.model.UserInfo;
 import com.prayasj.gndit.network.JwtTokenHolder;
@@ -15,7 +13,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginPresenter {
-  private  SaveSharedPreferences saveSharedPreferences;
+  private SaveSharedPreferences saveSharedPreferences;
   private final LoginService loginService;
   private final LoginView loginView;
   private UserInfoValidator userInfoValidator;

@@ -6,8 +6,12 @@ import java.util.List;
 
 public interface DashboardView {
   void showCropRequests(List<CropRequest> body);
+
   void showError();
+
   void onRefreshDone();
+
   void showProgressDialog();
+
   void deleteRequest(CropRequest cropRequest);
 }

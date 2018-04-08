@@ -17,19 +17,19 @@ public class MakeCropRequestPresenter {
   private MakeCropRequestView makeCropRequestView;
 
 
-  public MakeCropRequestPresenter(CropRequestService cropRequestService, CropsNameService cropsNameService, MakeCropRequestView makeCropRequestView){
+  public MakeCropRequestPresenter(CropRequestService cropRequestService, CropsNameService cropsNameService, MakeCropRequestView makeCropRequestView) {
     this.cropRequestService = cropRequestService;
     this.cropsNameService = cropsNameService;
     this.makeCropRequestView = makeCropRequestView;
   }
 
 
-  public void renderCropsList(){
+  public void renderCropsList() {
     makeCropRequestView.showProgressLoader("Loading Crops", "Loading...");
     cropsNameService.getCropName().enqueue(new Callback<List<String>>() {
       @Override
       public void onResponse(Call<List<String>> call, Response<List<String>> response) {
-        if (response.isSuccessful()){
+        if (response.isSuccessful()) {
           makeCropRequestView.showCropsName(response.body());
         }
       }
@@ -42,12 +42,12 @@ public class MakeCropRequestPresenter {
 
   }
 
-  public void saveCropRequest(){
+  public void saveCropRequest() {
     makeCropRequestView.showProgressLoader("Creating Crop Request", "Sending Request to the Server");
     cropRequestService.saveCropRequest(makeCropRequestView.getCropRequestInfo()).enqueue(new Callback<Void>() {
       @Override
       public void onResponse(Call<Void> call, Response<Void> response) {
-        if(response.isSuccessful()){
+        if (response.isSuccessful()) {
           makeCropRequestView.onSuccessful();
           return;
         }

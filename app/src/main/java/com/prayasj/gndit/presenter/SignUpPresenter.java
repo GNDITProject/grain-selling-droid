@@ -24,9 +24,9 @@ public class SignUpPresenter {
   public void signup(String username, String password) {
     signUpView.showProgressLoader();
     UserInfo currentUser = new UserInfo(username, password);
-    if (userInfoValidator.isUserInfoValid(currentUser) == null){
+    if (userInfoValidator.isUserInfoValid(currentUser) == null) {
       makeRequest(currentUser);
-    }else {
+    } else {
       signUpView.showErrorMessage(userInfoValidator.isUserInfoValid(currentUser));
     }
   }

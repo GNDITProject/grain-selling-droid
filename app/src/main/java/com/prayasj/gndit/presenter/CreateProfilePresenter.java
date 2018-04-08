@@ -30,7 +30,7 @@ public class CreateProfilePresenter {
     String message = userProfileInfoValidator.isUserProfileInfoValid(userProfileInfo);
     if (message == null) {
       makeRequest(userProfileInfo);
-    }else
+    } else
       view.showErrorMessage(message);
   }
 
@@ -49,6 +49,7 @@ public class CreateProfilePresenter {
         }
         view.onTechnicalError();
       }
+
       @Override
       public void onFailure(Call<Void> call, Throwable t) {
         view.onTechnicalError();

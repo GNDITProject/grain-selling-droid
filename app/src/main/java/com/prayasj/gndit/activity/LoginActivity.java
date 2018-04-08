@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     loginPresenter = new LoginPresenter(saveSharedPreferences, (ServiceBuilder.build(LoginService.class)), this, userInfoValidator);
   }
 
-    private void login() {
+  private void login() {
     final String username = this.<EditText>findViewById(R.id.loginUsername).getText().toString();
     final String password = this.<EditText>findViewById(R.id.loginPassword).getText().toString();
     loginPresenter.login(username, password);
@@ -103,6 +103,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     progressDialog.dismiss();
     showSnackBar(message);
   }
+
   private void showSnackBar(String message) {
     final Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_SHORT);
     snackbar.setAction("OK", new View.OnClickListener() {

@@ -1,8 +1,6 @@
 package com.prayasj.gndit.presenter;
 
 
-import android.util.Log;
-
 import com.prayasj.gndit.model.CropRequest;
 import com.prayasj.gndit.network.service.CropRequestService;
 import com.prayasj.gndit.views.DashboardView;
@@ -68,7 +66,7 @@ public class DashboardPresenter {
     cropRequestService.deleteCropRequest(cropRequest.getRequestId()).enqueue(new Callback<Void>() {
       @Override
       public void onResponse(Call<Void> call, Response<Void> response) {
-        if (response.isSuccessful()){
+        if (response.isSuccessful()) {
           dashboardView.showProgressDialog();
           refresh();
         }

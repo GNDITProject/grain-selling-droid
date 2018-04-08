@@ -45,7 +45,7 @@ public class CreateProfileActivity extends AppCompatActivity implements OnDateSe
     super.onCreate(savedInstanceState);
     selectedDob = new Date().getTime();
     setContentView(R.layout.create_profile_activity);
-    createProfilePresenter = new CreateProfilePresenter(ServiceBuilder.build(UserProfileService.class), this,new UserProfileInfoValidator());
+    createProfilePresenter = new CreateProfilePresenter(ServiceBuilder.build(UserProfileService.class), this, new UserProfileInfoValidator());
   }
 
   @Override

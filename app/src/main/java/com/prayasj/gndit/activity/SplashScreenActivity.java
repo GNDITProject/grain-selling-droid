@@ -29,7 +29,7 @@ public class SplashScreenActivity extends Activity implements LoginView, SplashS
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_splash_screen);
 
-    saveSharedPreferences =  new SaveSharedPreferences(this);
+    saveSharedPreferences = new SaveSharedPreferences(this);
     autoLoginManager = new AutoLoginManager((ServiceBuilder.build(LoginService.class)), this, saveSharedPreferences);
     SplashScreenPresenter splashScreenPresenter = new SplashScreenPresenter(this, autoLoginManager, saveSharedPreferences);
     splashScreenPresenter.doLoginIfRequired();

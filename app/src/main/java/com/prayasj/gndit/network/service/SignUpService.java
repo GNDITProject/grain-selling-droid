@@ -8,6 +8,6 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 public interface SignUpService {
-    @POST("/api/signup")
-    Call<Void> signup(@Body UserInfo userInfo);
+  @POST("/api/signup")
+  Call<Void> signup(@Body UserInfo userInfo);
 }

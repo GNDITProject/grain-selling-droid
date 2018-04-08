@@ -15,7 +15,7 @@ public class JwtTokenHolder {
     return jwtToken;
   }
 
-  public boolean hasToken(){
+  public boolean hasToken() {
     return jwtToken != null;
   }
 

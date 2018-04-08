@@ -1,7 +1,5 @@
 package com.prayasj.gndit.network.service;
 
-import com.prayasj.gndit.model.Crop;
-
 import java.util.List;
 
 import retrofit2.Call;

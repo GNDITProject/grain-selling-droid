@@ -24,7 +24,7 @@ public class CropRequestAdapter extends ArrayAdapter<CropRequest> {
 
   public CropRequestAdapter(DashboardView dashboardView, @NonNull Context context, @NonNull List<CropRequest> cropRequest) {
     super(context, 0, cropRequest);
-    this.dashboardView =  dashboardView;
+    this.dashboardView = dashboardView;
   }
 
   @NonNull
@@ -77,7 +77,7 @@ public class CropRequestAdapter extends ArrayAdapter<CropRequest> {
     return new PopupMenu.OnMenuItemClickListener() {
       @Override
       public boolean onMenuItemClick(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
           case R.id.delete:
             dashboardView.deleteRequest(currentRequest);
             return true;

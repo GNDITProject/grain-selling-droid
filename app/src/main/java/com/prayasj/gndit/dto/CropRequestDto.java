@@ -8,7 +8,7 @@ public class CropRequestDto {
   private BigDecimal quantity;
 
   public CropRequestDto(String cropName, String quantity, String price) {
-    this.cropName =  cropName;
+    this.cropName = cropName;
     this.quantity = new BigDecimal(quantity);
     this.price = new BigDecimal(price);
   }

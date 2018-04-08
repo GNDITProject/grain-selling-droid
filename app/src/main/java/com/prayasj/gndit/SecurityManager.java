@@ -13,7 +13,7 @@ public class SecurityManager {
   private static final String KEY = "1Hbfh667adfDEJ78";
 
   public static String encrypt(String value) throws Exception {
-    Key key= generateKey();
+    Key key = generateKey();
     Cipher cipher = Cipher.getInstance(SecurityManager.ALGORITHM);
     cipher.init(Cipher.ENCRYPT_MODE, key);
     byte[] encryptedByteValue = cipher.doFinal(value.getBytes("utf-8"));
@@ -33,7 +33,7 @@ public class SecurityManager {
   }
 
   private static Key generateKey() throws Exception {
-    Key key = new SecretKeySpec(SecurityManager.KEY.getBytes(),SecurityManager.ALGORITHM);
+    Key key = new SecretKeySpec(SecurityManager.KEY.getBytes(), SecurityManager.ALGORITHM);
     return key;
   }
 }

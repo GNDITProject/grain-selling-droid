@@ -10,19 +10,15 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.prayasj.gndit.AutoLoginManager;
 import com.prayasj.gndit.R;
-import com.prayasj.gndit.SaveSharedPreferences;
 import com.prayasj.gndit.custom.views.EditText;
 import com.prayasj.gndit.network.ServiceBuilder;
-import com.prayasj.gndit.network.service.LoginService;
 import com.prayasj.gndit.network.service.SignUpService;
 import com.prayasj.gndit.presenter.SignUpPresenter;
 import com.prayasj.gndit.validator.UserInfoValidator;
-import com.prayasj.gndit.views.LoginView;
 import com.prayasj.gndit.views.SignUpView;
 
-public class SignupActivity extends AppCompatActivity implements SignUpView{
+public class SignupActivity extends AppCompatActivity implements SignUpView {
 
   public static final String NEW_USER_NAME = "userName";
   private ProgressDialog progressDialog;
@@ -71,7 +67,6 @@ public class SignupActivity extends AppCompatActivity implements SignUpView{
   }
 
 
-
   @Override
   public void onSignUpSuccessful() {
     progressDialog.dismiss();
@@ -93,6 +88,7 @@ public class SignupActivity extends AppCompatActivity implements SignUpView{
     progressDialog.dismiss();
     showSnackBar(message);
   }
+
   private void showSnackBar(String message) {
     final Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_SHORT);
     snackbar.setAction("OK", new View.OnClickListener() {

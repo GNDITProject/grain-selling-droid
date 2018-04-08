@@ -3,7 +3,6 @@ package com.prayasj.gndit.model;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.UUID;
 
 public class CropRequest {
   private String cropName;
@@ -12,15 +11,15 @@ public class CropRequest {
   private Long createdAt;
   private String requestId;
 
-  public BigDecimal getPrice(){
+  public BigDecimal getPrice() {
     return price;
   }
 
-  public BigDecimal getQuantity(){
+  public BigDecimal getQuantity() {
     return quantity;
   }
 
-  public String getCropName(){
+  public String getCropName() {
     return cropName;
   }
 
