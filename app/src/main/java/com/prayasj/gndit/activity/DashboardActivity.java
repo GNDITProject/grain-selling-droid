@@ -2,19 +2,17 @@ package com.prayasj.gndit.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.PopupMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.ListView;
+import android.support.v7.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.prayasj.gndit.R;
@@ -114,13 +112,18 @@ public class DashboardActivity extends AppCompatActivity implements DashboardVie
   public void showCropRequests(List<CropRequest> cropRequests) {
     progressDialog.dismiss();
     CropRequestAdapter cropRequestAdapter =
-      new CropRequestAdapter(DashboardActivity.this, cropRequests);
+      new CropRequestAdapter(this, DashboardActivity.this, cropRequests);
     ListView cropRequestView = findViewById(R.id.crop_request_view);
     cropRequestView.setAdapter(cropRequestAdapter);
   }
 
   @Override
   public void showError() {
+    Toast.makeText(DashboardActivity.this, "Error function", Toast.LENGTH_SHORT).show();
+  }
 
+  @Override
+  public void deleteRequest(CropRequest cropRequest) {
+    dashboardPresenter.deleteRequest(cropRequest);
   }
 }

@@ -49,6 +49,7 @@ public class MakeCropRequestPresenter {
       public void onResponse(Call<Void> call, Response<Void> response) {
         if(response.isSuccessful()){
           makeCropRequestView.onSuccessful();
+          return;
         }
         makeCropRequestView.onFailure();
       }

@@ -31,13 +31,13 @@ public class DashboardPresenter {
         if (response.isSuccessful()) {
           List<CropRequest> body = response.body();
           dashboardView.showCropRequests(body);
+          return;
         }
         dashboardView.showError();
       }
 
       @Override
       public void onFailure(Call<List<CropRequest>> call, Throwable throwable) {
-        Log.d("prayas", "failure:");
         dashboardView.showError();
       }
     });
@@ -51,17 +51,33 @@ public class DashboardPresenter {
           List<CropRequest> body = response.body();
           dashboardView.showCropRequests(body);
           dashboardView.onRefreshDone();
+          return;
         }
         dashboardView.showError();
       }
 
       @Override
       public void onFailure(Call<List<CropRequest>> call, Throwable throwable) {
-        Log.d("prayas", "failure:");
         dashboardView.showError();
       }
     });
 
   }
 
+  public void deleteRequest(CropRequest cropRequest) {
+    cropRequestService.deleteCropRequest(cropRequest.getRequestId()).enqueue(new Callback<Void>() {
+      @Override
+      public void onResponse(Call<Void> call, Response<Void> response) {
+        if (response.isSuccessful()){
+          dashboardView.showProgressDialog();
+          refresh();
+        }
+      }
+
+      @Override
+      public void onFailure(Call<Void> call, Throwable t) {
+        dashboardView.showError();
+      }
+    });
+  }
 }
