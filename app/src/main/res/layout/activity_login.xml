@@ -46,7 +46,7 @@
     android:layout_marginRight="16dp"
     android:layout_marginTop="8dp"
     android:background="@color/secondaryDark"
-    android:text="Login"
+    android:text="@string/login"
     android:textAlignment="center"
     android:textColor="@color/secondary"/>
 
@@ -57,7 +57,7 @@
       android:layout_height="wrap_content"
       android:paddingTop="8dp"
       android:layout_above="@+id/register2"
-      android:text="Don\'t have Account?"
+      android:text="@string/dont_have_account"
       android:textAlignment="center"
       android:textColor="@color/secondaryDark" />
 
@@ -68,7 +68,7 @@
       android:layout_height="wrap_content"
       android:paddingBottom="8dp"
       android:layout_alignParentBottom="true"
-      android:text="Register Here"
+      android:text="@string/register"
       android:textStyle="bold"
       android:textAlignment="center"
       android:textColor="@color/colorPrimary" />

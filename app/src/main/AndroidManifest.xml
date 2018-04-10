@@ -22,16 +22,16 @@
     </activity>
     <activity
       android:name=".activity.SignupActivity"
-      android:label="SignUp" />
+      android:label="@string/SignUp" />
     <activity
       android:name=".activity.LoginActivity"
-      android:label="Login" />
+      android:label="@string/login" />
     <activity
       android:name=".activity.DashboardActivity"
-      android:label="Your Crop Requests" />
+      android:label="@string/your_crops_request"/>
     <activity
       android:name=".activity.MakeCropRequestActivity"
-      android:label="Create Crop Request" />
+      android:label="@string/create_crop_request" />
     <activity
       android:name=".activity.CreateProfileActivity"
       android:label="@string/title_activity_create_profile" />

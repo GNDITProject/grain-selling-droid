@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">अनाज बेचने का आवेदन</string>
+  <string name="userName">उपयोगकर्ता नाम</string>
+  <string name="password">पासवर्ड</string>
+  <string name="name">नाम</string>
+  <string name="already_member">पहले से ही सदस्य हैं?</string>
+  <string name="login_here">यहां लॉगिन करें</string>
+  <string name="dont_have_account">खाता नहीं है?</string>
+  <string name="register">यहां रजिस्टर करें</string>
+  <string name="quantity">तादाद</string>
+  <string name="price">मूल्य</string>
+  <string name="Rs">\u20B9</string>
+  <string name="Mt">मट</string>
+  <string name="add_request">अनुरोध जोड़ें</string>
+  <string name="title_activity_create_profile">अपना प्रोफ़ाइल बनाए</string>
+  <string name="full_name">पूरा नाम</string>
+  <string name="address">पता</string>
+  <string name="contact_number">संपर्क संख्या</string>
+  <string name="dob">जन्म तिथि</string>
+  <string name="wait_a_moment">एक पल इंतज़ार करें…</string>
+  <string name="saving_profile_information">प्रोफ़ाइल की जानकारी इकठ्ठा की जा रही है</string>
+  <string name="technical_difficulty">हम तकनीकी कठिनाई का सामना कर रहे हैं बाद में पुन: प्रयास करें।</string>
+  <string name="delete">मिटाना</string>
+  <string name="edit">संपादित करें</string>
+  <string name="crop_name">फसल का नाम</string>
+  <string name="SignUp">साइन अप</string>
+  <string name="login">लॉग इन</string>
+  <string name="your_crops_request">आपके फसल अनुरोध</string>
+  <string name="create_crop_request">फसल अनुरोध बनाएं</string>
+  <string-array name="gender">
+    <item>लिंग चुनें</item>
+    <item>पुस्र्ष</item>
+    <item>महिला</item>
+  </string-array>
+</resources>
