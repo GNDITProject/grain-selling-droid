@@ -107,8 +107,8 @@ public class CreateProfileActivity extends AppCompatActivity implements OnDateSe
   private String getGender() {
     String selectedItem = (String) ((Spinner) findViewById(R.id.gender)).getSelectedItem();
     Map<String, String> genderKeys = new HashMap<>();
-    genderKeys.put("Male", "M");
-    genderKeys.put("Female", "F");
+    genderKeys.put(getString(R.string.male), "M");
+    genderKeys.put(getString(R.string.female), "F");
     return genderKeys.containsKey(selectedItem) ? genderKeys.get(selectedItem) : selectedItem;
   }
 

@@ -27,9 +27,11 @@
   <string name="login">Login</string>
   <string name="create_crop_request">Create Crop Request</string>
   <string name="your_crops_request">Your Crop Requests</string>
+  <string name="male">Male</string>
+  <string name="female">Female</string>
   <string-array name="gender">
     <item>Select Gender</item>
-    <item>Male</item>
-    <item>Female</item>
+    <item>@string/male</item>
+    <item>@string/female</item>
   </string-array>
 </resources>

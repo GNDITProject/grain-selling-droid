@@ -16,22 +16,23 @@
       android:label="@string/app_name">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
-
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
     <activity
       android:name=".activity.SignupActivity"
-      android:label="@string/SignUp" />
+      android:label="@string/SignUp"
+      android:windowSoftInputMode="stateVisible|adjustResize" />
     <activity
       android:name=".activity.LoginActivity"
-      android:label="@string/login" />
+      android:label="@string/login"
+      android:windowSoftInputMode="stateVisible|adjustResize" />
     <activity
       android:name=".activity.DashboardActivity"
-      android:label="@string/your_crops_request"/>
+      android:label="@string/your_crops_request" />
     <activity
       android:name=".activity.MakeCropRequestActivity"
-      android:label="@string/create_crop_request" />
+      android:label="@string/create_crop_request"  />
     <activity
       android:name=".activity.CreateProfileActivity"
       android:label="@string/title_activity_create_profile" />

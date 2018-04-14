@@ -28,9 +28,11 @@
   <string name="login">लॉग इन</string>
   <string name="your_crops_request">आपके फसल अनुरोध</string>
   <string name="create_crop_request">फसल अनुरोध बनाएं</string>
+  <string name="male">पुस्र्ष</string>
+  <string name="female">महिला</string>
   <string-array name="gender">
     <item>लिंग चुनें</item>
-    <item>पुस्र्ष</item>
-    <item>महिला</item>
+    <item>@string/male</item>
+    <item>@string/female</item>
   </string-array>
 </resources>
